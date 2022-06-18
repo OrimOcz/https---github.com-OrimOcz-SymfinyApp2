@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="">
+        <h2 class="text-center py-5">Add customer contact</h2>
+
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <div class="">
+            {{ form_start(form) }}
+            <div class="form-row mx-auto" style="width:100%">
+                <div class="form-group col-md-3 mb-3">
+                    {{ form_label(form.firstName)}}
+                    {{ form_widget(form.firstName,{'attr': {'class': 'form-control'}})}}
+                </div>
+                <div class="form-group col-md-3 mb-3">
+                    {{ form_label(form.lastName)}}
+                    {{ form_widget(form.lastName,{'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="form-group col-md-3 mb-3">
+                    {{ form_label(form.phone)}}
+                    {{ form_widget(form.phone,{'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="form-group col-md-3 mb-3 d-flex flex-colum">
+                    <button class="btn btn-success mt-2 text-white align-bottom mt-auto" type="submit" value="" style="width: 100%;">Submit</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <table class="table">
+        <thead class="bg-dark text-white">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+        </thead>
+        <tbody>
+        {% for data in contact %}
+            <tr>
+                <td>{{ data.firstName }}</td>
+                <td>{{ data.lastName }}</td>
+                <td>{{ data.phone }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
