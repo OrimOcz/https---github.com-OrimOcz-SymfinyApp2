@@ -1,7 +1,7 @@
 version: '3.8'
 
 networks:
-    nginx-php74-mysql8-node:
+    nginx-php74-mysql8:
 
 services:
 
@@ -47,4 +47,4 @@ services:
             MYSQL_ROOT_PASSWORD: secret
             MYSQL_PASSWORD: secret
         networks:
-            - nginx-php74-mysql8-
+            - nginx-php74-mysql8
